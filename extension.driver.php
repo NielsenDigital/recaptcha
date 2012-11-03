@@ -111,18 +111,18 @@
 		
 		public function uninstall(){
 			//ConfigurationAccessor::remove('recaptcha');	
-			$this->_Parent->Configuration->remove('recaptcha');
-			$this->_Parent->saveConfig();
+			Symphony::Configuration()->remove('recaptcha');
+			Symphony::Configuration()->saveConfig();
 		}
 
 		public function getPublicKey(){
 			//return ConfigurationAccessor::get('public-key', 'recaptcha');
-			return $this->_Parent->Configuration->get('public-key', 'recaptcha');
+			return Symphony::Configuration()->get('public-key', 'recaptcha');
 		}	
 		
 		public function getPrivateKey(){
 			//return ConfigurationAccessor::get('private-key', 'recaptcha');
-			return $this->_Parent->Configuration->get('private-key', 'recaptcha');
+			return Symphony::Configuration()->get('private-key', 'recaptcha');
 		}			
 		
 	}
