@@ -64,11 +64,11 @@
 
 			$div = new XMLElement('div', NULL, array('class' => 'group'));
 			$label = Widget::Label('Public Key');
-			$label->appendChild(Widget::Input('settings[recaptcha][public-key]', General::Sanitize($this->_Parent->Configuration->get('public-key', 'recaptcha'))));		
+			$label->appendChild(Widget::Input('settings[recaptcha][public-key]', General::Sanitize(Symphony::Configuration()->get('public-key', 'recaptcha'))));		
 			$div->appendChild($label);
 
 			$label = Widget::Label('Private Key');
-			$label->appendChild(Widget::Input('settings[recaptcha][private-key]', General::Sanitize($this->_Parent->Configuration->get('private-key', 'recaptcha'))));		
+			$label->appendChild(Widget::Input('settings[recaptcha][private-key]', General::Sanitize(Symphony::Configuration()->get('private-key', 'recaptcha'))));		
 			$div->appendChild($label);
 			
 			$group->appendChild($div);
@@ -112,7 +112,7 @@
 		public function uninstall(){
 			//ConfigurationAccessor::remove('recaptcha');	
 			Symphony::Configuration()->remove('recaptcha');
-			Symphony::Configuration()->saveConfig();
+			Symphony::Configuration()->write();
 		}
 
 		public function getPublicKey(){
